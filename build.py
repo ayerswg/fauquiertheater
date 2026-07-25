@@ -16,10 +16,14 @@ followed by the page's <main> content. `active` marks the top-nav item that
 gets aria-current="page".
 """
 import re
+import json
+import html as _html
 from pathlib import Path
+from itertools import groupby
 
 ROOT = Path(__file__).parent
 SRC = ROOT / "src" / "pages"
+NEWS_DATA = ROOT / "src" / "news.json"
 
 NAV_ITEMS = [
     ("/shows/", "Shows &amp; Tickets"),
@@ -139,28 +143,128 @@ def nav_html(active):
     return "".join(lines)
 
 
+def render(title, description, active, body):
+    return (
+        HEAD.format(title=title, description=description, nav_items=nav_html(active))
+        + body.rstrip()
+        + "\n"
+        + FOOT
+    )
+
+
+def attr_text(s):
+    """Plain-text (attribute-safe) version of a string that may contain HTML."""
+    s = re.sub(r"<[^>]+>", "", s)
+    s = _html.unescape(s)
+    return (
+        s.replace("&", "&amp;").replace('"', "&quot;")
+        .replace("<", "&lt;").replace(">", "&gt;")
+    )
+
+
+def news_card(p):
+    if p["image"]:
+        media = f'<img src="{p["image"]}" alt="" loading="lazy">'
+    else:
+        media = '<span class="news-card-noimg">FCT</span>'
+    return (
+        f'<a class="news-card card-link" href="/news/{p["slug"]}/">\n'
+        f'  <div class="news-card-media">{media}</div>\n'
+        f'  <div class="news-card-body">\n'
+        f'    <p class="news-date">{p["date"]}</p>\n'
+        f'    <h3>{p["title"]}</h3>\n'
+        f'    <p class="news-excerpt">{p["excerpt"]}</p>\n'
+        f'  </div>\n'
+        f'</a>'
+    )
+
+
+def build_news(emit):
+    posts = json.loads(NEWS_DATA.read_text())
+
+    # Individual post pages, in blog-post format, with older/newer navigation.
+    for i, p in enumerate(posts):
+        hero = (
+            f'<img class="post-hero" src="{p["image"]}" alt="">' if p["image"] else ""
+        )
+        newer = posts[i - 1] if i > 0 else None
+        older = posts[i + 1] if i + 1 < len(posts) else None
+        older_lnk = (
+            f'<a class="post-nav-older" href="/news/{older["slug"]}/">'
+            f'<span>&larr; Older</span>{older["title"]}</a>' if older else "<span></span>"
+        )
+        newer_lnk = (
+            f'<a class="post-nav-newer" href="/news/{newer["slug"]}/">'
+            f'<span>Newer &rarr;</span>{newer["title"]}</a>' if newer else "<span></span>"
+        )
+        body = (
+            f'<article class="post">\n'
+            f'  <div class="wrap post-wrap">\n'
+            f'    <p class="post-back"><a href="/news/">&larr; All News</a></p>\n'
+            f'    <p class="eyebrow">{p["date"]}</p>\n'
+            f'    <h1>{p["title"]}</h1>\n'
+            f'    {hero}\n'
+            f'    <div class="prose post-body">\n{p["body"]}\n</div>\n'
+            f'    <nav class="post-nav">{older_lnk}{newer_lnk}</nav>\n'
+            f'  </div>\n'
+            f'</article>'
+        )
+        title = attr_text(p["title"])
+        desc = attr_text(p["excerpt"] or p["title"])
+        emit(
+            Path("news") / p["slug"] / "index.html",
+            render(f"{title} — Fauquier Community Theatre", desc, "", body),
+        )
+
+    # Archive index, grouped by year.
+    sections = []
+    for year, group in groupby(posts, key=lambda p: p["year"]):
+        cards = "\n".join(news_card(p) for p in group)
+        sections.append(
+            f'<h2 class="news-year">{year}</h2>\n'
+            f'<div class="news-grid">\n{cards}\n</div>'
+        )
+    body = (
+        '<div class="page-hero">\n  <div class="wrap">\n'
+        '    <h1>News &amp; Announcements</h1>\n'
+        '    <p>Cast announcements, reviews, season news, and community happenings '
+        'from Fauquier Community Theatre.</p>\n  </div>\n</div>\n\n'
+        '<div class="section">\n  <div class="wrap">\n'
+        + "\n".join(sections)
+        + "\n  </div>\n</div>"
+    )
+    emit(
+        Path("news") / "index.html",
+        render(
+            "News &amp; Announcements — Fauquier Community Theatre",
+            "News and announcements from Fauquier Community Theatre — cast "
+            "announcements, reviews, and season news since 2013.",
+            "",
+            body,
+        ),
+    )
+
+
 def build():
     urls = []
-    for frag in sorted(SRC.rglob("*.html")):
-        meta, body = parse_fragment(frag.read_text())
-        rel = frag.relative_to(SRC)
+
+    def emit(rel, page_html):
+        rel = Path(rel)
         out = ROOT / rel
         out.parent.mkdir(parents=True, exist_ok=True)
-        html = (
-            HEAD.format(
-                title=meta["title"],
-                description=meta["description"],
-                nav_items=nav_html(meta.get("active", "")),
-            )
-            + body.rstrip()
-            + "\n"
-            + FOOT
-        )
-        out.write_text(html)
+        out.write_text(page_html)
         if rel.name == "index.html":
             path = "/" if rel.parent == Path(".") else f"/{rel.parent.as_posix()}/"
             urls.append(f"https://fauquiertheater.org{path}")
         print(f"built {rel}")
+
+    for frag in sorted(SRC.rglob("*.html")):
+        meta, body = parse_fragment(frag.read_text())
+        rel = frag.relative_to(SRC)
+        emit(rel, render(meta["title"], meta["description"],
+                         meta.get("active", ""), body))
+
+    build_news(emit)
 
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

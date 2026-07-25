@@ -19,6 +19,20 @@ lost), redesigned as a responsive static site for deployment on Cloudflare Pages
 To edit a page: change the fragment in `src/pages/`, run `python3 build.py`,
 and commit both. To change the nav or footer: edit `build.py` and rebuild.
 
+## News archive
+
+The `/news/` archive (index + one page per post, `/news/<slug>/`) is generated
+by `build.py` from `src/news.json` — a committed data file holding each post's
+title, date, primary image, excerpt, and cleaned body HTML. Post images live in
+`assets/images/news/`. `build.py` has no third-party dependencies; the data is
+pre-cleaned so no HTML parsing happens at build time.
+
+The data was scraped from the old WordPress site's REST API
+(`/wp-json/wp/v2/posts`). To refresh it, re-run the scratchpad `extract.py`
+(which needs `beautifulsoup4`) against a fresh API pull, re-download the images
+listed in its `image_urls.txt`, and replace `src/news.json`. Editing a single
+post afterward is just a JSON edit + `python3 build.py`.
+
 ## Local preview
 
 ```sh
