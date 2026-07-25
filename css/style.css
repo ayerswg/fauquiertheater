@@ -171,7 +171,6 @@ p, ul, ol { margin: 0 0 1em; }
   gap: 0.25rem;
   margin: 0;
   padding: 0;
-  flex-wrap: wrap;
 }
 
 .site-nav a {
@@ -187,14 +186,25 @@ p, ul, ol { margin: 0 0 1em; }
 .site-nav a:hover { background: var(--paper-warm); color: var(--navy-dark); }
 .site-nav a[aria-current="page"] { color: var(--red-dark); }
 
-.site-nav .nav-cta a {
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.btn-tickets {
+  display: inline-block;
   background: var(--red);
   color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
   border-radius: 999px;
-  padding: 0.55rem 1rem;
-  margin-left: 0.25rem;
+  padding: 0.55rem 1.2rem;
+  white-space: nowrap;
 }
-.site-nav .nav-cta a:hover { background: var(--red-dark); color: #fff; }
+.btn-tickets:hover { background: var(--red-dark); color: #fff; }
 
 @media (max-width: 1020px) {
   .nav-toggle { display: block; }
@@ -216,8 +226,13 @@ p, ul, ol { margin: 0 0 1em; }
     gap: 0.1rem;
   }
   .site-nav a { padding: 0.7rem 0.75rem; font-size: 1.05rem; }
-  .site-nav .nav-cta { margin-top: 0.5rem; }
-  .site-nav .nav-cta a { text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .brand img { width: 40px; height: 40px; }
+  .brand-name { font-size: 1rem; }
+  .brand-name small { font-size: 0.6rem; }
+  .btn-tickets { font-size: 0.85rem; padding: 0.5rem 0.9rem; }
 }
 
 /* --------------------------------------------------------------------------

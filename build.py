@@ -55,12 +55,14 @@ HEAD = """<!DOCTYPE html>
       <img src="/assets/images/fct-star.png" alt="" width="48" height="48">
       <span class="brand-name">Fauquier<small>Community Theatre</small></span>
     </a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">&#9776;</button>
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
       <ul>
-{nav_items}        <li class="nav-cta"><a href="https://fctstage.thundertix.com/">Buy Tickets</a></li>
-      </ul>
+{nav_items}      </ul>
     </nav>
+    <div class="header-actions">
+      <a class="btn-tickets" href="https://fctstage.thundertix.com/">Buy Tickets</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">&#9776;</button>
+    </div>
   </div>
 </header>
 
