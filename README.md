@@ -42,6 +42,6 @@ not-found routes.
 - **JotForm** — audition/registration/scholarship/director-proposal forms
 - **FlippingBook** — playbill flipbooks
 
-Note: email addresses on the site are `@fctstage.org` and links point at
-`fctstage.thundertix.com` — these were carried over from the old site and
-should be revisited if email/ticketing hosting changes along with the domain.
+Note: all contact email on the site points to `info@fauquiertheater.org`.
+Ticketing links still point at `fctstage.thundertix.com` (carried over from
+the old site) and should be revisited if ticketing hosting changes.
