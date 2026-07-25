@@ -95,21 +95,6 @@ p, ul, ol { margin: 0 0 1em; }
    Header & navigation
    -------------------------------------------------------------------------- */
 
-.topbar {
-  background: var(--navy-deep);
-  color: #cfd8ee;
-  font-size: 0.85rem;
-  padding: 0.35rem 0;
-}
-.topbar .wrap {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.topbar a { color: #fff; text-decoration: none; }
-.topbar a:hover { text-decoration: underline; color: #fff; }
-
 .site-header {
   background: var(--paper);
   border-bottom: 1px solid var(--line);

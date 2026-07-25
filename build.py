@@ -43,11 +43,6 @@ HEAD = """<!DOCTYPE html>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<div class="topbar">
-  <div class="wrap">
-    <span>4225 Aiken Drive, Warrenton, VA 20187</span>
-  </div>
-</div>
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">
