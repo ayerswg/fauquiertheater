@@ -25,6 +25,10 @@ ROOT = Path(__file__).parent
 SRC = ROOT / "src" / "pages"
 NEWS_DATA = ROOT / "src" / "news.json"
 
+# Canonical origin. Both fauquiertheater.org and fauquiertheatre.org point at
+# the site (to catch the misspelling), but fauquiertheatre.org is canonical.
+SITE = "https://fauquiertheatre.org"
+
 NAV_ITEMS = [
     ("/shows/", "Shows &amp; Tickets"),
     ("/auditions/", "Auditions"),
@@ -43,7 +47,7 @@ HEAD = """<!DOCTYPE html>
 <title>{title}</title>
 <meta name="description" content="{description}">
 <meta name="generator" content="Fauquier Community Theatre static site">
-<link rel="icon" type="image/png" href="/favicon.png">
+{canonical}<link rel="icon" type="image/png" href="/favicon.png">
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -144,9 +148,15 @@ def nav_html(active):
     return "".join(lines)
 
 
-def render(title, description, active, body):
+def render(title, description, active, body, path=None):
+    canonical = f'<link rel="canonical" href="{SITE}{path}">\n' if path else ""
     return (
-        HEAD.format(title=title, description=description, nav_items=nav_html(active))
+        HEAD.format(
+            title=title,
+            description=description,
+            nav_items=nav_html(active),
+            canonical=canonical,
+        )
         + body.rstrip()
         + "\n"
         + FOOT
@@ -214,7 +224,8 @@ def build_news(emit):
         desc = attr_text(p["excerpt"] or p["title"])
         emit(
             Path("news") / p["slug"] / "index.html",
-            render(f"{title} — Fauquier Community Theatre", desc, "", body),
+            render(f"{title} — Fauquier Community Theatre", desc, "", body,
+                   path=f"/news/{p['slug']}/"),
         )
 
     # Archive index, grouped by year.
@@ -242,6 +253,7 @@ def build_news(emit):
             "announcements, reviews, and season news since 2013.",
             "",
             body,
+            path="/news/",
         ),
     )
 
@@ -256,14 +268,18 @@ def build():
         out.write_text(page_html)
         if rel.name == "index.html":
             path = "/" if rel.parent == Path(".") else f"/{rel.parent.as_posix()}/"
-            urls.append(f"https://fauquiertheater.org{path}")
+            urls.append(f"{SITE}{path}")
         print(f"built {rel}")
 
     for frag in sorted(SRC.rglob("*.html")):
         meta, body = parse_fragment(frag.read_text())
         rel = frag.relative_to(SRC)
+        if rel.name == "index.html":
+            canon = "/" if rel.parent == Path(".") else f"/{rel.parent.as_posix()}/"
+        else:
+            canon = None  # e.g. 404.html — no canonical
         emit(rel, render(meta["title"], meta["description"],
-                         meta.get("active", ""), body))
+                         meta.get("active", ""), body, path=canon))
 
     build_news(emit)
 

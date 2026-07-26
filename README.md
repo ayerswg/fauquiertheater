@@ -1,4 +1,4 @@
-# Fauquier Community Theatre — fauquiertheater.org
+# Fauquier Community Theatre — fauquiertheatre.org
 
 Static website for Fauquier Community Theatre (Warrenton, VA). This is a rebuild
 of the content from the theater's previous site (fctstage.org, domain access
@@ -44,7 +44,11 @@ python3 -m http.server 8737
 
 1. Create a Pages project pointed at this repo.
 2. Build command: **none** — leave empty. Build output directory: `/`.
-3. Add the custom domain `fauquiertheater.org` (and `www.fauquiertheater.org`).
+3. Add the custom domains. `fauquiertheatre.org` (the "theatre" spelling) is
+   canonical — it's what the sitemap and every page's `<link rel="canonical">`
+   point to. `fauquiertheater.org` (the "theater" misspelling) is also pointed
+   at the site to catch typos; leave it serving the same content or redirect it
+   to the canonical domain.
 
 `404.html` at the root is picked up automatically by Cloudflare Pages for
 not-found routes.
@@ -56,6 +60,6 @@ not-found routes.
 - **JotForm** — audition/registration/scholarship/director-proposal forms
 - **FlippingBook** — playbill flipbooks
 
-Note: all contact email on the site points to `info@fauquiertheater.org`.
+Note: all contact email on the site points to `info@fauquiertheatre.org`.
 Ticketing links still point at `fctstage.thundertix.com` (carried over from
 the old site) and should be revisited if ticketing hosting changes.

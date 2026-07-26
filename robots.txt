@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fauquiertheater.org/sitemap.xml
+Sitemap: https://fauquiertheatre.org/sitemap.xml
