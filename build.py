@@ -42,6 +42,7 @@ HEAD = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{description}">
+<meta name="generator" content="Fauquier Community Theatre static site">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="stylesheet" href="/css/style.css">
 </head>
