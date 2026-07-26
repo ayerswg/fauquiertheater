@@ -230,34 +230,29 @@ p, ul, ol { margin: 0 0 1em; }
     radial-gradient(900px 500px at 10% 110%, rgba(217, 43, 52, 0.24), transparent 55%),
     linear-gradient(160deg, var(--navy-dark), var(--navy-deep));
   color: #fff;
-  padding: 1.75rem 0 3.5rem;
+  padding: 0 0 3.25rem;
   text-align: center;
   overflow: hidden;
 }
 
-/* Building photo: masked so its (edited) edges dissolve into the navy. */
+/* Building photo: the left/right edges (edited in the source) fade into the
+   navy via a single horizontal mask gradient. Height is capped so it doesn't
+   dominate on large screens; cover crops the foreground, keeping the marquee. */
 .hero-banner {
-  max-width: 1180px;
   margin: 0 auto;
-  padding: 0 1rem;
+  max-width: 1180px;
 }
 .hero-img {
   display: block;
   width: 100%;
-  height: auto;
-  -webkit-mask-image:
-    linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%),
-    linear-gradient(to bottom, transparent 0, #000 12%),
-    linear-gradient(to top, transparent 0, #000 9%);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%),
-    linear-gradient(to bottom, transparent 0, #000 12%),
-    linear-gradient(to top, transparent 0, #000 9%);
-  mask-composite: intersect;
+  max-height: 54vh;
+  object-fit: cover;
+  object-position: center 22%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
 }
 
-.hero-content { margin-top: 1rem; }
+.hero-content { padding-top: 1.9rem; }
 .hero h1 { color: #fff; margin: 0.2em auto 0.4em; max-width: 20ch; }
 .hero p {
   color: #d7deef;
@@ -270,17 +265,10 @@ p, ul, ol { margin: 0 0 1em; }
 .hero .btn-row { margin-top: 1.75rem; justify-content: center; }
 
 @media (max-width: 600px) {
-  .hero { padding-top: 1rem; }
-  .hero-banner { padding: 0; }
   .hero-img {
-    -webkit-mask-image:
-      linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%),
-      linear-gradient(to bottom, transparent 0, #000 9%),
-      linear-gradient(to top, transparent 0, #000 7%);
-    mask-image:
-      linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%),
-      linear-gradient(to bottom, transparent 0, #000 9%),
-      linear-gradient(to top, transparent 0, #000 7%);
+    max-height: 50vh;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
   }
 }
 
