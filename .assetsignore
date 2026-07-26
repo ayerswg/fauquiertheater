@@ -1,0 +1,10 @@
+# Files in the repo root that should NOT be uploaded as part of the site.
+# (Uses .gitignore-style patterns, relative to the assets directory.)
+.git
+.gitignore
+src
+tools
+build.py
+README.md
+wrangler.jsonc
+.assetsignore

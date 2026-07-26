@@ -1,0 +1,14 @@
+{
+  // Must match the Cloudflare Workers project name exactly, or `wrangler
+  // deploy` will target/create a different Worker.
+  "name": "fauquiertheater",
+  "compatibility_date": "2026-01-01",
+
+  // Static-assets-only Worker (no server code): serve the repo root as a
+  // plain static site. `.assetsignore` keeps source files out of the upload.
+  "assets": {
+    "directory": ".",
+    // Serve /404.html for unknown routes, matching the old Pages behavior.
+    "not_found_handling": "404-page"
+  }
+}
