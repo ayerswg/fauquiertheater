@@ -1,0 +1,8 @@
+{
+  "name": "fauquiertheater",
+  "private": true,
+  "description": "Static site for Fauquier Community Theatre (fauquiertheater.org).",
+  "scripts": {
+    "build": "echo \"No build step needed: the static site is generated locally by build.py and committed to the repo. Cloudflare just uploads it via wrangler.\""
+  }
+}
