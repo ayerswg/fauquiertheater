@@ -122,13 +122,16 @@ in the zone's Email Routing panel — no site change needed.
 
 ## External services still in use
 
-- **ThunderTix** — ticketing, donations, memberships, gift cards
-  (`fctstage.thundertix.com`)
+- **Ludus** — ticketing, donations, memberships (`fct.ludus.com`; replaced
+  ThunderTix in August 2026). General ticketing links go to
+  `https://fct.ludus.com/`, donations/membership to
+  `https://fct.ludus.com/donate`, and individual shows to their direct
+  `show_page.php?show_id=…` URL (find it via the show's "Learn More" link on
+  the Ludus events page). No public gift-card page exists on Ludus yet — the
+  old ThunderTix gift-card links now point at the Ludus main page; update them
+  if/when gift cards are enabled.
 - **JotForm** — audition / registration / scholarship / director-proposal forms
 - **FlippingBook** — playbill flipbooks
-
-Ticketing links still point at `fctstage.thundertix.com` (carried over from the
-old site); revisit if ticketing hosting ever changes.
 
 ## Refreshing the news archive
 

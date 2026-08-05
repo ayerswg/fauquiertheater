@@ -63,7 +63,7 @@ HEAD = """<!DOCTYPE html>
 {nav_items}      </ul>
     </nav>
     <div class="header-actions">
-      <a class="btn-tickets" href="https://fctstage.thundertix.com/">Buy Tickets</a>
+      <a class="btn-tickets" href="https://fct.ludus.com/">Buy Tickets</a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">&#9776;</button>
     </div>
   </div>
@@ -90,7 +90,7 @@ FOOT = """</main>
         <h3>Visit</h3>
         <ul>
           <li><a href="/shows/">Shows &amp; Tickets</a></li>
-          <li><a href="https://fctstage.thundertix.com/">Buy Tickets Online</a></li>
+          <li><a href="https://fct.ludus.com/">Buy Tickets Online</a></li>
           <li><a href="/faq/">FAQs</a></li>
           <li><a href="/contact/">Contact Us</a></li>
         </ul>
