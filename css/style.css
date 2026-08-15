@@ -493,6 +493,20 @@ p, ul, ol { margin: 0 0 1em; }
 }
 .show-meta { color: var(--ink-soft); font-size: 0.95rem; margin: 0; }
 
+/* Licensor-required billing credits. Author lines must each sit on their own
+   line and stay at least 50% of the size of the show title type. */
+.billing {
+  margin: 1.25rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.billing p { margin: 0 0 0.75rem; }
+.billing p:last-child { margin-bottom: 0; }
+.billing .billing-title { font-weight: 700; color: var(--ink); letter-spacing: 0.02em; }
+
 .badge {
   display: inline-block;
   background: var(--gold);
