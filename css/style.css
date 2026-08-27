@@ -482,6 +482,11 @@ p, ul, ol { margin: 0 0 1em; }
   flex-direction: column;
 }
 .show-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.show-card img.show-artwork-wide {
+  aspect-ratio: 12 / 5;
+  object-fit: contain;
+  background: var(--navy-dark);
+}
 .show-card .show-body { padding: 1.25rem 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
 .show-card .show-body > :last-child { margin-top: auto; }
 .audition-feature { display: grid; grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr); margin-bottom: 3rem; }
