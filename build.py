@@ -192,6 +192,7 @@ def news_card(p):
 
 def build_news(emit):
     posts = json.loads(NEWS_DATA.read_text())
+    posts.sort(key=lambda post: post["iso"], reverse=True)
 
     # Individual post pages, in blog-post format, with older/newer navigation.
     for i, p in enumerate(posts):
