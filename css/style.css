@@ -452,6 +452,27 @@ p, ul, ol { margin: 0 0 1em; }
   color: var(--ink-soft);
   margin-top: -0.5rem;
 }
+.story-photo {
+  margin: 2rem 0;
+}
+.story-photo img {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+  object-fit: contain;
+  background: var(--paper-warm);
+}
+.post-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.75rem 0 0.75rem;
+}
+.post-gallery img { width: 100%; margin: 0; }
+.photo-credit { text-align: center; color: var(--ink-soft); }
+@media (max-width: 600px) {
+  .post-gallery { grid-template-columns: 1fr; }
+}
 .report-embed {
   width: 100%;
   aspect-ratio: 16 / 10;
