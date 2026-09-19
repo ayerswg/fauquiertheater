@@ -22,8 +22,11 @@ gold `#f2b632`, body text `#22304a`, warm background `#f6f7fb`.
 - `fct-large-banner-google-site-1440x600.jpg` — **Large banner header (use this one).** Full photo fits the
   banner height, navy fade on the sides, 100 px of extra sky above the roof sign so the
   overlaid navigation bar never covers "THEATER". `…-2048x853.jpg` is the same at 2x.
-- `fct-banner-google-site-1440x480.jpg` — shorter Banner header, matches the current hero
+- `fct-banner-google-site-1440x300.jpg` — **Banner header (standard, not large).** Whole photo fits the
+  height and fades to solid `#12295a` on all four sides. `…-2880x600.jpg` is the same at 2x.
+- `fct-banner-google-site-1440x480.jpg` — earlier 480 px banner, matches the current hero
 - `fct-banner-google-site-photo-1440x480.jpg` — full-bleed photo alternative
 - `fct-cover-google-site-1440x1024.jpg` — Cover header
 
-Regenerate with `tools/build_google_site_assets.py` and `tools/build_google_site_large_banner.py`.
+Regenerate with `tools/build_google_site_assets.py` and `tools/build_google_site_large_banner.py`,
+and `tools/build_google_site_banner_300.py`.
