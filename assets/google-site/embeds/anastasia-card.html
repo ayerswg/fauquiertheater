@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1b3a7a; --navy-dark: #12295a; --navy-deep: #0d1f45;
+    --red: #d92b34; --red-dark: #b31e27; --gold: #f2b632;
+    --ink: #22304a; --ink-soft: #4a5875; --line: #dfe4ef;
+  }
+  html, body { margin: 0; padding: 0; background: transparent; }
+  body { font-family: Roboto, Arial, sans-serif; font-size: 17px; line-height: 1.65; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  a { color: var(--navy); }
+  a:hover { color: var(--red-dark); }
+  p { margin: 0 0 1em; }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(13, 31, 69, 0.10);
+    display: flex;
+    flex-direction: column;
+    max-width: 640px;
+  }
+  .card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    background: var(--navy-dark);
+  }
+  .body { padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 6px; }
+
+  .badge {
+    display: inline-block; width: fit-content;
+    background: var(--gold); color: var(--navy-deep);
+    font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+    border-radius: 999px; padding: 3px 11px; margin-bottom: 8px;
+  }
+  h3 { font-family: Lora, Georgia, serif; font-weight: 700; font-size: 22px; line-height: 1.2; color: var(--navy-dark); margin: 0 0 6px; }
+  .dates { color: var(--red-dark); font-weight: 700; font-size: 14.4px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .meta { color: var(--ink-soft); font-size: 15px; margin: 0; }
+
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+  .btn {
+    display: inline-block; padding: 11px 22px; border-radius: 999px;
+    font-weight: 700; font-size: 16px; text-decoration: none; border: 2px solid transparent;
+  }
+  .btn-primary { background: var(--red); color: #fff; }
+  .btn-primary:hover { background: var(--red-dark); color: #fff; }
+  .btn-outline { border-color: currentColor; color: var(--navy-dark); background: transparent; }
+  .btn-outline:hover { background: var(--navy-dark); color: #fff; border-color: var(--navy-dark); }
+
+  .billing { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 14.4px; line-height: 1.5; }
+  .billing p { margin: 0 0 12px; }
+  .billing .title { font-weight: 700; color: var(--ink); letter-spacing: 0.02em; }
+</style>
+</head>
+<body>
+<div class="card">
+  <img src="https://fauquiertheatre.org/assets/images/anastasia-square.png" alt="Anastasia: The Musical show artwork">
+  <div class="body">
+    <span class="badge">Next Main Stage Show</span>
+    <h3>Anastasia: The Musical</h3>
+    <p class="dates">September 18 &ndash; October 4, 2026</p>
+    <p class="meta">Fridays and weekends &middot; Tickets $18&ndash;$24, reserved seating</p>
+    <p>Journey from the twilight of the Russian Empire to the euphoria of 1920s Paris as a brave young woman sets out to discover the mystery of her past. Book by Terrence McNally, music by Stephen Flaherty, lyrics by Lynn Ahrens. Directed by Camden Gillespie.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://fct.ludus.com/show_page.php?show_id=200537904" target="_top">Get Tickets</a>
+      <a class="btn btn-outline" href="https://fauquiertheatre.org/shows/anastasia/" target="_top">Show Details &amp; Show Program</a>
+    </div>
+    <div class="billing">
+      <p class="title">ANASTASIA: THE MUSICAL</p>
+      <p>Book by Terrence McNally<br>
+      Music by Stephen Flaherty<br>
+      Lyrics by Lynn Ahrens</p>
+      <p>Inspired by the Twentieth Century Fox Motion Pictures by special arrangement with Buena Vista Theatrical</p>
+      <p>From the play by Marcelle Maurette as adapted by Guy Bolton</p>
+      <p>ANASTASIA is presented by arrangement with Concord Theatricals.<br>
+      <a href="https://www.concordtheatricals.com" target="_blank" rel="noopener">www.concordtheatricals.com</a></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
