@@ -12,7 +12,7 @@ OUT='assets/google-site'
 
 def smooth(t): return t*t*(3-2*t)
 
-def build(buffer=180, blend_into_photo=60, name='fct-hero-google-site-1600.jpg'):
+def build(buffer=90, blend_into_photo=40, name='fct-hero-google-site-1600.jpg'):
     photo=Image.open('assets/images/fauquier-community-theatre-hero-1600.jpg').convert('RGB')
     pw,ph=photo.size; H=ph+buffer
     im=Image.new('RGB',(pw,H),NAVY_DARK); im.paste(photo,(0,buffer))

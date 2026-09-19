@@ -17,7 +17,7 @@ gold `#f2b632`, body text `#22304a`, warm background `#f6f7fb`.
 ## Files
 
 - `fct-hero-google-site-1600.jpg` — **Hero image to insert as a normal image block** (not a header).
-  Place it in a section with background `#12295a`. Sides and a 180 px sky buffer on top ease into
+  Place it in a section with background `#12295a`. Sides and a 90 px sky buffer on top ease into
   that navy; the bottom edge is hard so the section can cut it off.
 - `fct-logo-google-site-240h.png` — header logo, navy text, transparent (240 px tall)
 - `fct-logo-google-site-240h-white.png` — same lockup for a dark header
