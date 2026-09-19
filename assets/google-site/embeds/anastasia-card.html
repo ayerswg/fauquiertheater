@@ -10,78 +10,94 @@
     --red: #d92b34; --red-dark: #b31e27; --gold: #f2b632;
     --ink: #22304a; --ink-soft: #4a5875; --line: #dfe4ef;
   }
-  html, body { margin: 0; padding: 0; background: transparent; }
-  body { font-family: Roboto, Arial, sans-serif; font-size: 17px; line-height: 1.65; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; background: transparent; overflow: hidden; }
+  body { font-family: Roboto, Arial, sans-serif; font-size: 17px; line-height: 1.55; color: var(--ink); -webkit-font-smoothing: antialiased; }
   a { color: var(--navy); }
   a:hover { color: var(--red-dark); }
-  p { margin: 0 0 1em; }
+  p { margin: 0 0 0.85em; }
 
+  /* The card always fills the embed frame, inset so the border and shadow are never clipped. */
   .card {
+    position: absolute; inset: 4px;
+    display: flex; flex-direction: column;
     background: #fff;
     border: 1px solid var(--line);
     border-radius: 12px;
-    overflow: hidden;
     box-shadow: 0 1px 3px rgba(13, 31, 69, 0.10);
-    display: flex;
-    flex-direction: column;
-    max-width: 640px;
+    overflow: hidden;
   }
-  .card img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: contain;
+
+  /* Top: artwork, letterboxed on navy, never more than 45% of the frame. */
+  .art {
+    flex: 0 0 auto;
+    width: 100%; max-height: 45%; aspect-ratio: 1 / 1;
+    object-fit: contain; object-position: center;
     background: var(--navy-dark);
   }
-  .body { padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 6px; }
+
+  /* Middle: scrolls only if the frame is too short. */
+  .body {
+    flex: 1 1 auto; min-height: 0;
+    overflow-y: auto;
+    padding: 18px 24px 8px;
+  }
+
+  /* Bottom: pinned to the card's lower edge. */
+  .foot {
+    flex: 0 0 auto;
+    padding: 8px 24px 20px;
+  }
 
   .badge {
-    display: inline-block; width: fit-content;
+    display: inline-block;
     background: var(--gold); color: var(--navy-deep);
-    font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
-    border-radius: 999px; padding: 3px 11px; margin-bottom: 8px;
+    font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1;
+    border-radius: 999px; padding: 6px 12px; margin-bottom: 12px;
   }
-  h3 { font-family: Lora, Georgia, serif; font-weight: 700; font-size: 22px; line-height: 1.2; color: var(--navy-dark); margin: 0 0 6px; }
+  h3 { font-family: Lora, Georgia, serif; font-weight: 700; font-size: 22px; line-height: 1.2; color: var(--navy-dark); margin: 0 0 8px; }
   .dates { color: var(--red-dark); font-weight: 700; font-size: 14.4px; letter-spacing: 0.04em; text-transform: uppercase; }
-  .meta { color: var(--ink-soft); font-size: 15px; margin: 0; }
+  .meta { color: var(--ink-soft); font-size: 15px; }
+  .credits { color: var(--ink-soft); font-size: 15px; margin-bottom: 0; }
 
-  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
   .btn {
     display: inline-block; padding: 11px 22px; border-radius: 999px;
-    font-weight: 700; font-size: 16px; text-decoration: none; border: 2px solid transparent;
+    font-weight: 700; font-size: 16px; line-height: 1.2; text-decoration: none; border: 2px solid transparent;
   }
   .btn-primary { background: var(--red); color: #fff; }
   .btn-primary:hover { background: var(--red-dark); color: #fff; }
   .btn-outline { border-color: currentColor; color: var(--navy-dark); background: transparent; }
   .btn-outline:hover { background: var(--navy-dark); color: #fff; border-color: var(--navy-dark); }
 
-  .billing { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 14.4px; line-height: 1.5; }
-  .billing p { margin: 0 0 12px; }
+  .billing { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 12.5px; line-height: 1.45; }
+  .billing p { margin: 0 0 6px; }
   .billing .title { font-weight: 700; color: var(--ink); letter-spacing: 0.02em; }
 </style>
 </head>
 <body>
 <div class="card">
-  <img src="https://fauquiertheatre.org/assets/images/anastasia-square.png" alt="Anastasia: The Musical show artwork">
+  <img class="art" src="https://fauquiertheatre.org/assets/images/anastasia-square.png" alt="Anastasia: The Musical show artwork">
+
   <div class="body">
     <span class="badge">Next Main Stage Show</span>
     <h3>Anastasia: The Musical</h3>
     <p class="dates">September 18 &ndash; October 4, 2026</p>
-    <p class="meta">Fridays and weekends &middot; Tickets $18&ndash;$24, reserved seating</p>
-    <p>Journey from the twilight of the Russian Empire to the euphoria of 1920s Paris as a brave young woman sets out to discover the mystery of her past. Book by Terrence McNally, music by Stephen Flaherty, lyrics by Lynn Ahrens. Directed by Camden Gillespie.</p>
+    <p class="meta">Fridays and weekends &middot; $18&ndash;$24, reserved seating &middot; On sale now</p>
+    <p>From the twilight of the Russian Empire to the euphoria of Paris in the 1920s, a brave young woman investigates her mysterious past with the help of her companions on an epic adventure. Book by Terrence McNally, music by Stephen Flaherty, lyrics by Lynn Ahrens.</p>
+    <p class="credits">Directed by Camden Gillespie &middot; Produced by Maggie Swan &middot; Music direction by Nick Villacorte &middot; Choreography by Abby Chaumont</p>
+  </div>
+
+  <div class="foot">
     <div class="btn-row">
       <a class="btn btn-primary" href="https://fct.ludus.com/show_page.php?show_id=200537904" target="_top">Get Tickets</a>
-      <a class="btn btn-outline" href="https://fauquiertheatre.org/shows/anastasia/" target="_top">Show Details &amp; Show Program</a>
+      <a class="btn btn-outline" href="https://fauquiertheatre.org/shows/anastasia/" target="_top">Program &amp; Details</a>
     </div>
     <div class="billing">
       <p class="title">ANASTASIA: THE MUSICAL</p>
-      <p>Book by Terrence McNally<br>
-      Music by Stephen Flaherty<br>
-      Lyrics by Lynn Ahrens</p>
-      <p>Inspired by the Twentieth Century Fox Motion Pictures by special arrangement with Buena Vista Theatrical</p>
-      <p>From the play by Marcelle Maurette as adapted by Guy Bolton</p>
-      <p>ANASTASIA is presented by arrangement with Concord Theatricals.<br>
-      <a href="https://www.concordtheatricals.com" target="_blank" rel="noopener">www.concordtheatricals.com</a></p>
+      <p>Book by Terrence McNally &middot; Music by Stephen Flaherty &middot; Lyrics by Lynn Ahrens</p>
+      <p>Inspired by the Twentieth Century Fox Motion Pictures by special arrangement with Buena Vista Theatrical. From the play by Marcelle Maurette as adapted by Guy Bolton.</p>
+      <p>ANASTASIA is presented by arrangement with Concord Theatricals. <a href="https://www.concordtheatricals.com" target="_blank" rel="noopener">www.concordtheatricals.com</a></p>
     </div>
   </div>
 </div>
