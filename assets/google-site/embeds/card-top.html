@@ -7,12 +7,12 @@
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; height: 100%; background: transparent; overflow: hidden; }
   .bar {
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: space-between;
+    position: absolute; inset: 0 0 -2px 0;
+    display: flex; align-items: center;
     padding: 0 16px;
-    background: linear-gradient(135deg, #12295a, #0d1f45);
+    border: 2px solid #12295a;
+    border-bottom: 0;
     border-radius: 12px 12px 0 0;
-    border-bottom: 3px solid #d92b34;
   }
   .badge {
     display: inline-block;
@@ -21,18 +21,11 @@
     color: #0d1f45; background: #f2b632;
     border-radius: 999px; padding: 6px 12px; white-space: nowrap;
   }
-  .stars { display: flex; gap: 6px; }
-  .stars svg { width: 14px; height: 14px; }
 </style>
 </head>
 <body>
 <div class="bar">
   <span class="badge">Next Main Stage Show</span>
-  <span class="stars">
-    <svg viewBox="0 0 24 24"><path fill="#d92b34" d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7L12 17.5 5.8 21l1.6-7L2 9.3l7.1-.7z"/></svg>
-    <svg viewBox="0 0 24 24"><path fill="#f2b632" d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7L12 17.5 5.8 21l1.6-7L2 9.3l7.1-.7z"/></svg>
-    <svg viewBox="0 0 24 24"><path fill="#3aa63f" d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7L12 17.5 5.8 21l1.6-7L2 9.3l7.1-.7z"/></svg>
-  </span>
 </div>
 </body>
 </html>
