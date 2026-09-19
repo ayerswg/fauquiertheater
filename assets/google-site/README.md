@@ -19,8 +19,9 @@ gold `#f2b632`, body text `#22304a`, warm background `#f6f7fb`.
 - `fct-logo-google-site-240h.png` — header logo, navy text, transparent (240 px tall)
 - `fct-logo-google-site-240h-white.png` — same lockup for a dark header
 - `fct-star-icon-512.png` — square star icon (favicon / social)
-- `fct-large-banner-google-site-2048x600.jpg` — **Large banner header (use this one).** 2048 wide so the
-  header does not zoom on wide screens and Google does not downsample it.
+- `fct-large-banner-google-site-2048x400.jpg` — **Large banner header (use this one).** The rendered header
+  is about 5:1, so a 2048x400 image fills it with no vertical crop. 80 px sky headroom for the nav.
+- `fct-large-banner-google-site-2048x600.jpg` — earlier 2048x600 version (gets cropped top and bottom).
 - `fct-large-banner-google-site-1440x600.jpg` — earlier 1440-wide version. Full photo fits the
   banner height, navy fade on the sides, 100 px of extra sky above the roof sign so the
   overlaid navigation bar never covers "THEATER". `…-2048x853.jpg` is the same at 2x.
