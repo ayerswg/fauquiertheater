@@ -24,6 +24,8 @@ gold `#f2b632`, body text `#22304a`, warm background `#f6f7fb`.
   overlaid navigation bar never covers "THEATER". `…-2048x853.jpg` is the same at 2x.
 - `fct-banner-google-site-1440x300.jpg` — **Banner header (standard, not large).** Whole photo fits the
   height and fades to solid `#12295a` on all four sides. `…-2880x600.jpg` is the same at 2x.
+  `…-2048x300.jpg` and `…-3840x300.jpg` are extra-wide versions (same building size,
+  more navy on the sides) so the header never zooms in on wide screens.
 - `fct-banner-google-site-1440x480.jpg` — earlier 480 px banner, matches the current hero
 - `fct-banner-google-site-photo-1440x480.jpg` — full-bleed photo alternative
 - `fct-cover-google-site-1440x1024.jpg` — Cover header
