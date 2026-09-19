@@ -1,0 +1,26 @@
+# Google Sites assets
+
+Assets for the Fauquier Community Theatre Google Site, derived from the
+current fauquiertheater.org design (`css/style.css`, `assets/images/`).
+
+## Theme colors (Google Sites custom theme)
+
+| Slot      | Hex       | Source on current site                 |
+|-----------|-----------|----------------------------------------|
+| Primary   | `#1b3a7a` | `--navy` (links, buttons, headings)    |
+| Secondary | `#d92b34` | `--red` (star red, hover, accents)     |
+| Tertiary  | `#3aa63f` | `--green` (star green, subtitle text)  |
+
+Supporting values if a slot asks for them: dark navy `#12295a`,
+gold `#f2b632`, body text `#22304a`, warm background `#f6f7fb`.
+
+## Files
+
+- `fct-logo-google-site-240h.png` — header logo, navy text, transparent (240 px tall)
+- `fct-logo-google-site-240h-white.png` — same lockup for a dark header
+- `fct-star-icon-512.png` — square star icon (favicon / social)
+- `fct-banner-google-site-1440x480.jpg` — Banner / Large banner header, matches the current hero
+- `fct-banner-google-site-photo-1440x480.jpg` — full-bleed photo alternative
+- `fct-cover-google-site-1440x1024.jpg` — Cover header
+
+Regenerate with the script in `tools/build_google_site_assets.py`.
