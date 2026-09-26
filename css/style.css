@@ -539,6 +539,11 @@ p, ul, ol { margin: 0 0 1em; }
   object-fit: contain;
   background: var(--navy-dark);
 }
+.show-card img.show-artwork-portrait {
+  aspect-ratio: 4 / 5;
+  height: auto;
+  background: transparent;
+}
 .show-card img.show-artwork-wide {
   aspect-ratio: 12 / 5;
   object-fit: contain;
@@ -548,6 +553,15 @@ p, ul, ol { margin: 0 0 1em; }
 .show-card .show-body > :last-child { margin-top: auto; }
 .audition-feature { display: grid; grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr); margin-bottom: 3rem; }
 .audition-feature img { height: 100%; aspect-ratio: auto; }
+.audition-feature img.show-artwork-portrait {
+  align-self: start;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  object-position: center top;
+  background: transparent;
+}
 .audition-feature .show-body > :last-child { margin-top: 1.25rem; }
 .audition-history-heading { margin-top: 0; }
 @media (max-width: 760px) {
@@ -717,3 +731,10 @@ details > :last-child { margin-bottom: 0; }
 }
 
 .social-row { display: flex; gap: 0.9rem; margin-top: 0.5rem; flex-wrap: wrap; }
+
+/* Homepage award artwork and recognition. */
+.home-award { display: flex; align-items: center; justify-content: center; gap: 1.5rem; padding-top: 2rem; padding-bottom: 3rem; }
+.home-award-badge { display: block; flex: 0 1 380px; width: 100%; max-width: 380px; }
+.home-award-badge img { display: block; width: 100%; height: auto; }
+.home-award h2 { margin-bottom: 0.5rem; }
+@media (max-width: 600px) { .home-award { flex-direction: column; text-align: center; } .home-award-badge { flex-basis: auto; } }
