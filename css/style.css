@@ -443,6 +443,13 @@ p, ul, ol { margin: 0 0 1em; }
   margin-bottom: 1.75rem;
   background: var(--paper-warm);
 }
+.post-hero-poster {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  max-height: none;
+  margin: 0 auto 1.75rem;
+}
 .post-body img {
   border-radius: var(--radius);
   margin: 1.25rem auto;

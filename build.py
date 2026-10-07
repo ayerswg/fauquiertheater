@@ -199,8 +199,11 @@ def build_news(emit):
 
     # Individual post pages, in blog-post format, with older/newer navigation.
     for i, p in enumerate(posts):
+        hero_class = "post-hero"
+        if p.get("image_fit") == "contain":
+            hero_class += " post-hero-poster"
         hero = (
-            f'<img class="post-hero" src="{p["image"]}" alt="{attr_text(p.get("image_alt", ""))}">' if p["image"] else ""
+            f'<img class="{hero_class}" src="{p["image"]}" alt="{attr_text(p.get("image_alt", ""))}">' if p["image"] else ""
         )
         newer = posts[i - 1] if i > 0 else None
         older = posts[i + 1] if i + 1 < len(posts) else None
