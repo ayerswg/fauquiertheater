@@ -10,5 +10,5 @@
   .production-collage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .production-collage-grid a:first-child { grid-row: auto; }
   .production-collage-grid a:nth-child(6) { grid-column: auto; }
-  .production-collage-grid a:last-child { grid-column: 1 / -1; }
+  .production-collage-grid a:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
