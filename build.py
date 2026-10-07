@@ -205,6 +205,17 @@ def build_news(emit):
         hero = (
             f'<img class="{hero_class}" src="{p["image"]}" alt="{attr_text(p.get("image_alt", ""))}">' if p["image"] else ""
         )
+        if p.get("gallery"):
+            photos = "".join(
+                f'<a href="{attr_text(photo["src"])}"><img src="{attr_text(photo["src"])}" alt="{attr_text(photo["alt"])}" loading="lazy"></a>'
+                for photo in p["gallery"]
+            )
+            hero = (
+                '<link rel="stylesheet" href="/css/production-collage.css">'
+                '<figure class="production-collage">'
+                f'<div class="production-collage-grid">{photos}</div>'
+                '<figcaption>Moments from FCT&rsquo;s <em>Anastasia</em>. Select any photo to view it full size.</figcaption></figure>'
+            )
         newer = posts[i - 1] if i > 0 else None
         older = posts[i + 1] if i + 1 < len(posts) else None
         older_lnk = (

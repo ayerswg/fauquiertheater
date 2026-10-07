@@ -1,0 +1,14 @@
+/* Production photo collage: keep the complete stage photographs visible. */
+.production-collage { margin: 0 0 2rem; }
+.production-collage-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; background: var(--navy-deep); padding: 8px; border-radius: var(--radius); overflow: hidden; }
+.production-collage-grid a { display: flex; align-items: center; }
+.production-collage-grid a:first-child { grid-row: span 2; }
+.production-collage-grid a:nth-child(6) { grid-column: span 2; }
+.production-collage-grid img { display: block; width: 100%; height: auto; }
+.production-collage figcaption { color: var(--ink-soft); font-size: 0.9rem; margin-top: 0.6rem; }
+@media (max-width: 600px) {
+  .production-collage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .production-collage-grid a:first-child { grid-row: auto; }
+  .production-collage-grid a:nth-child(6) { grid-column: auto; }
+  .production-collage-grid a:last-child { grid-column: 1 / -1; }
+}
