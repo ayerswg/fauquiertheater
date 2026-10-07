@@ -738,30 +738,3 @@ details > :last-child { margin-bottom: 0; }
 .home-award-badge img { display: block; width: 100%; height: auto; }
 .home-award h2 { margin-bottom: 0.5rem; }
 @media (max-width: 600px) { .home-award { flex-direction: column; text-align: center; } .home-award-badge { flex-basis: auto; } }
-
-/* Homepage holiday spotlight and recent-production celebration. */
-.holiday-hero {
-  padding: 4rem 0;
-  text-align: left;
-  background: radial-gradient(ellipse at top right, #31573f, transparent 65%), #102f25;
-  border-bottom: 5px solid var(--gold);
-}
-.holiday-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center; }
-.holiday-copy { min-width: 0; }
-.holiday-copy h1 { color: #fff; font-size: clamp(2.5rem, 5vw, 4rem); }
-.holiday-copy .hero-eyebrow { font-size: 0.8rem; margin-bottom: 1rem; }
-.holiday-tagline { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.35; color: #ffe2a2; }
-.holiday-dates { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.25rem; }
-.holiday-hero .btn-row { justify-content: flex-start; }
-.holiday-note { margin: 1.25rem 0 0; font-size: 0.9rem; color: #e0eade; }
-.holiday-art { width: 100%; border-radius: var(--radius); box-shadow: 0 12px 40px #0004; }
-.recent-production { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); gap: 2rem; align-items: start; }
-.recent-production > img { width: 100%; border-radius: 8px; }
-.recent-production h3 { margin-top: 0.6rem; font-size: 1.8rem; }
-.home-auditions .show-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); align-items: start; }
-@media (max-width: 760px) {
-  .holiday-hero { padding: 2.5rem 0; }
-  .holiday-layout, .recent-production, .home-auditions .show-card { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
-  .holiday-art { max-width: 600px; }
-  .recent-production > img { max-width: 360px; margin: 0 auto; }
-}
