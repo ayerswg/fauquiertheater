@@ -33,6 +33,7 @@ NAV_ITEMS = [
     ("/shows/", "Shows &amp; Tickets"),
     ("/auditions/", "Auditions"),
     ("/summer-camps/", "Summer Camps"),
+    ("/workshops/", "Workshops"),
     ("/get-involved/", "Get Involved"),
     ("/support/", "Support Us"),
     ("/about/", "About"),

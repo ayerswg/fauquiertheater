@@ -204,7 +204,7 @@ p, ul, ol { margin: 0 0 1em; }
 }
 .btn-tickets:hover { background: var(--red-dark); color: #fff; }
 
-@media (max-width: 1020px) {
+@media (max-width: 1200px) {
   .nav-toggle { display: block; }
   .site-nav {
     display: none;
