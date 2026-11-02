@@ -584,6 +584,18 @@ p, ul, ol { margin: 0 0 1em; }
 }
 .show-card .show-body { padding: 1.25rem 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
 .show-card .show-body > :last-child { margin-top: auto; }
+.home-show-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  margin-bottom: 2rem;
+}
+.home-show-feature > img { align-self: start; }
+.home-show-feature .show-body > :last-child { margin-top: 1rem; }
+.home-show-row { align-items: stretch; }
+@media (max-width: 900px) {
+  .home-show-feature { grid-template-columns: 1fr; }
+  .home-show-row { grid-template-columns: 1fr; }
+}
 .audition-feature { display: grid; grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr); margin-bottom: 3rem; }
 .audition-feature img { height: 100%; aspect-ratio: auto; }
 .audition-feature img.show-artwork-portrait {
