@@ -586,10 +586,10 @@ p, ul, ol { margin: 0 0 1em; }
 .show-card .show-body > :last-child { margin-top: auto; }
 .home-show-feature {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
   margin-bottom: 2rem;
 }
-.home-show-feature > img { align-self: start; }
+.home-show-feature > img { align-self: start; justify-self: center; max-width: 300px; }
 .home-show-feature .show-body > :last-child { margin-top: 1rem; }
 .home-show-row { align-items: stretch; }
 @media (max-width: 900px) {
